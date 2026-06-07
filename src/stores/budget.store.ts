@@ -20,7 +20,7 @@ function createEmptyCategoryTotals(): Record<BudgetCategory, number> {
   )
 }
 
-// 예산 Store는 API 결과와 로딩/오류 상태를 소유하고, 화면별 합계 표시 계산은 composable에서도 재사용할 수 있게 유지합니다.
+// 이 파일에서 배우는 것: 예산 Store는 CRUD 상태를 관리하고, getter로 여행별 합계와 카테고리별 합계를 파생시킵니다.
 export const useBudgetStore = defineStore('budget', {
   state: (): BudgetState => ({
     budgets: [],

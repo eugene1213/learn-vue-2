@@ -13,7 +13,7 @@ function toStoreErrorMessage(error: unknown): string {
   return error instanceof Error ? error.message : '설정을 처리하는 중 오류가 발생했습니다.'
 }
 
-// 설정 Store는 앱 전체가 공유하는 사용자 설정을 보관하므로 컴포넌트가 API 세부사항을 알 필요가 없게 합니다.
+// 이 파일에서 배우는 것: 설정 Store는 테마/샘플 데이터 같은 앱 전역 선호값을 한곳에 모아 컴포넌트 의존성을 낮춥니다.
 export const useSettingsStore = defineStore('settings', {
   state: (): SettingsState => ({
     settings: { ...defaultSettings },

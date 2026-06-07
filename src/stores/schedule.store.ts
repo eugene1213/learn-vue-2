@@ -13,7 +13,7 @@ function toStoreErrorMessage(error: unknown): string {
   return error instanceof Error ? error.message : '일정 정보를 처리하는 중 오류가 발생했습니다.'
 }
 
-// 일정 Store는 API에서 가져온 전역 목록을 보관하고, 특정 화면의 필터/입력 검증은 composable과 getter로 분리합니다.
+// 이 파일에서 배우는 것: 일정 Store는 여행별 목록을 캐시하고, getter에서 필터링/정렬해 화면 컴포넌트의 계산 부담을 줄입니다.
 export const useScheduleStore = defineStore('schedule', {
   state: (): ScheduleState => ({
     schedules: [],
