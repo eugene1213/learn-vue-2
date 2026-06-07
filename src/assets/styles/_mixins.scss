@@ -1,19 +1,23 @@
 @use './variables' as *;
 
+// 믹스인 학습: 반복되는 선언 묶음을 함수처럼 만들어 여러 SCSS 파일에서 @include로 재사용합니다.
 @mixin responsive-stack($breakpoint: 640px, $gap: $spacing-4) {
   display: flex;
   gap: $gap;
 
+  // 반응형 패턴: 기본은 가로 정렬, 지정한 폭 이하에서는 세로 정렬로 바꿔 좁은 화면의 눌림을 줄입니다.
   @media (max-width: $breakpoint) {
     flex-direction: column;
   }
 }
 
+// 접근성 믹스인: 키보드 포커스 표시를 같은 두께와 오프셋으로 유지하고, 색상만 필요에 따라 바꿀 수 있습니다.
 @mixin focus-ring($color: $color-primary) {
   outline: 3px solid rgba($color, 0.28);
   outline-offset: 2px;
 }
 
+// 표면 믹스인: 카드형 영역의 padding, border, radius, shadow 조합을 하나의 재사용 단위로 묶습니다.
 @mixin card-surface($padding: $spacing-6) {
   padding: $padding;
   border: 1px solid $color-border;

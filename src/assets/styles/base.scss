@@ -1,6 +1,7 @@
 @use './variables' as *;
 @use './layout';
 
+// 전역 기본값: 앱 전체에 적용되는 색상, 배경, 글꼴 렌더링을 변수 기반으로 설정합니다.
 :root {
   color: $color-text;
   background: $color-page;
@@ -23,6 +24,7 @@ button,
 input,
 textarea,
 select {
+  // 폼 요소는 브라우저 기본 글꼴이 다를 수 있어 부모의 타이포그래피를 상속하게 맞춥니다.
   font: inherit;
 }
 
@@ -31,6 +33,7 @@ select {
 }
 
 .app-shell {
+  // 레이아웃 유틸리티 예시: grid와 place-items로 데모/빈 화면을 중앙에 배치합니다.
   display: grid;
   min-height: 100vh;
   place-items: center;
@@ -38,6 +41,7 @@ select {
 }
 
 .app-shell__hero {
+  // BEM 학습: app-shell 블록의 __hero 요소는 같은 블록 안에서만 의미가 있는 하위 영역입니다.
   width: min(100%, 720px);
   padding: clamp(32px, 7vw, 72px);
   border: 1px solid rgba(37, 99, 235, 0.14);
@@ -70,6 +74,7 @@ select {
 }
 
 @media (max-width: 640px) {
+  // 반응형 학습: 작은 화면에서는 바깥 여백만 줄여 기존 구조를 유지합니다.
   .app-shell {
     padding: 18px;
   }

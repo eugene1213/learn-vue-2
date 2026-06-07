@@ -1,6 +1,7 @@
 @use './variables' as *;
 @use './mixins' as *;
 
+// 공유 레이아웃 헬퍼: 페이지마다 반복되는 최대 너비와 좌우 여백 규칙을 하나의 클래스로 제공합니다.
 .planner-container {
   width: min(100%, 1120px);
   margin-inline: auto;
@@ -8,10 +9,12 @@
 }
 
 .planner-section {
+  // @include 학습: 카드 표면 믹스인을 호출해 선언 중복 없이 같은 섹션 스타일을 적용합니다.
   @include card-surface;
 }
 
 .planner-actions {
+  // 반응형 액션 영역: 버튼 묶음은 넓을 때 가로, 좁을 때 responsive-stack 믹스인으로 세로 배치됩니다.
   @include responsive-stack(640px, $spacing-3);
 
   align-items: center;
@@ -19,6 +22,7 @@
 }
 
 .planner-sr-only {
+  // 접근성 유틸리티: 화면에는 보이지 않지만 스크린 리더가 읽을 수 있는 텍스트에 사용합니다.
   position: absolute;
   width: 1px;
   height: 1px;

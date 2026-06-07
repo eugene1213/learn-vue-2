@@ -1,3 +1,5 @@
+// SCSS 변수 학습: 색상·그림자·반경·간격을 한곳에 모아두면 여러 컴포넌트가 같은 디자인 토큰을 재사용할 수 있습니다.
+// 색상 토큰: 역할(page, surface, primary, danger 등) 중심으로 이름을 붙이면 실제 색상값이 바뀌어도 사용처의 의미가 유지됩니다.
 $color-page: #f8fafc;
 $color-surface: #ffffff;
 $color-surface-muted: #f1f5f9;
@@ -14,11 +16,17 @@ $color-text: #172033;
 $color-muted: #64748b;
 $color-disabled: #94a3b8;
 $color-overlay: rgba(15, 23, 42, 0.48);
+
+// 효과 토큰: 카드와 모달처럼 깊이감이 필요한 UI에서 동일한 그림자 규칙을 공유합니다.
 $shadow-card: 0 24px 60px rgba(15, 23, 42, 0.12);
 $shadow-modal: 0 32px 90px rgba(15, 23, 42, 0.28);
+
+// 반경 토큰: small/medium/large 단계로 둥근 정도를 제한해 화면 전체의 형태감을 맞춥니다.
 $radius-small: 12px;
 $radius-medium: 18px;
 $radius-large: 28px;
+
+// 간격 토큰: 4px 단위 스케일을 사용하면 padding, gap, margin을 임의값 없이 일관되게 조합할 수 있습니다.
 $spacing-1: 4px;
 $spacing-2: 8px;
 $spacing-3: 12px;
