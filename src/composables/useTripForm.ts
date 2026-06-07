@@ -21,6 +21,7 @@ const initialTripForm: TripFormState = {
   status: 'planned',
 }
 
+// 이 파일에서 배우는 것: composable로 폼 상태, 검증, 제출 변환을 묶으면 여러 화면에서 같은 입력 규칙을 재사용할 수 있습니다.
 export function useTripForm(initialValues: Partial<TripFormState> = {}) {
   const form = reactive<TripFormState>({ ...initialTripForm, ...initialValues })
   const errors = reactive<ValidationErrors<TripValidationField>>({})
@@ -85,7 +86,7 @@ export function useTripForm(initialValues: Partial<TripFormState> = {}) {
     delete errors.endDate
   }
 
-  // 폼 composable은 reactive 입력값과 검증 규칙을 캡슐화해 Store가 화면별 입력 상태까지 알 필요 없게 만듭니다.
+  // 반환값은 화면이 필요한 조작만 노출해 Store가 화면별 입력 상태까지 알 필요 없게 만듭니다.
   return {
     form,
     errors,

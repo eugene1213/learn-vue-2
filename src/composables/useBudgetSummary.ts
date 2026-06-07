@@ -9,6 +9,7 @@ function emptyCategoryTotals(): Record<BudgetCategory, number> {
   )
 }
 
+// 이 파일에서 배우는 것: MaybeRefOrGetter와 computed를 함께 쓰면 배열/Ref/Getter 입력 모두에서 반응형 합계를 만들 수 있습니다.
 export function useBudgetSummary(
   budgets: MaybeRefOrGetter<readonly BudgetItem[]>,
   tripId: MaybeRefOrGetter<string> = '',
