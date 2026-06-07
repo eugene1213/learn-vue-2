@@ -1,0 +1,30 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.planner-container {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  padding-inline: clamp($spacing-4, 4vw, $spacing-6);
+}
+
+.planner-section {
+  @include card-surface;
+}
+
+.planner-actions {
+  @include responsive-stack(640px, $spacing-3);
+
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.planner-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
