@@ -9,6 +9,7 @@ import TripCreatePage from '@/pages/TripCreatePage.vue'
 import TripDetailPage from '@/pages/TripDetailPage.vue'
 import TripListPage from '@/pages/TripListPage.vue'
 
+// 이 파일에서 배우는 것: URL path를 페이지 컴포넌트에 매핑하고, 동적 파라미터와 404 라우트를 함께 구성합니다.
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
