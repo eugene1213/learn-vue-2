@@ -42,7 +42,7 @@ const describedBy = computed(() => {
   return undefined
 })
 
-// 컴포넌트 v-model 학습: 내부 input 이벤트를 `update:modelValue`로 바꿔 부모 상태를 단방향으로 갱신합니다.
+// 이 파일에서 배우는 것: 부모의 v-model 값은 modelValue prop으로 내려오고, input 변경은 update:modelValue emit으로 올라가 부모 상태를 갱신합니다.
 function updateValue(event: Event) {
   emit('update:modelValue', (event.target as HTMLInputElement).value)
 }

@@ -20,6 +20,7 @@ const emit = defineEmits<{
   close: []
 }>()
 
+// 이 파일에서 배우는 것: Teleport 모달은 표시 여부를 prop으로 받고, 닫기 의도만 close 이벤트로 부모에게 전달합니다.
 function requestClose() {
   emit('close')
 }
@@ -36,7 +37,7 @@ function handleEscape(event: KeyboardEvent) {
   }
 }
 
-// watch 학습: 모달이 열려 있을 때만 전역 키보드 이벤트를 연결해 컴포넌트 생명주기와 부작용을 함께 보여줍니다.
+// watch 학습: 모달이 열려 있을 때만 전역 키보드 이벤트를 연결하고, 닫히거나 unmount될 때 정리합니다.
 watch(
   () => props.open,
   (isOpen) => {

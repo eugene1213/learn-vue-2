@@ -26,7 +26,7 @@ const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
-// Vue emit 학습: 부모가 처리할 수 있는 상호작용만 이벤트로 올리고, 비활성/로딩 상태는 컴포넌트 안에서 차단합니다.
+// 이 파일에서 배우는 것: variant/size prop으로 UI 규칙을 표준화하고, 유효한 클릭만 emit해 부모 로직을 단순하게 만듭니다.
 function handleClick(event: MouseEvent) {
   if (props.disabled || props.loading) {
     return
@@ -60,6 +60,7 @@ function handleClick(event: MouseEvent) {
 <style scoped lang="scss">
 @use '@/assets/styles/variables' as *;
 
+// BEM 학습: .base-button은 블록, --primary/--large는 상태·종류를 바꾸는 modifier입니다.
 .base-button {
   display: inline-flex;
   align-items: center;
@@ -139,6 +140,7 @@ function handleClick(event: MouseEvent) {
 }
 
 .base-button__loader {
+  // 요소 학습: __loader는 버튼 블록 내부에서만 쓰이는 작은 로딩 표시입니다.
   width: 0.9em;
   height: 0.9em;
   border: 2px solid currentColor;
