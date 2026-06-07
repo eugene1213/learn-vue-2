@@ -16,6 +16,7 @@ withDefaults(
   },
 )
 
+// 이 파일에서 배우는 것: unknown 데이터를 화면에 바로 넣지 않고 문자열로 정규화해 표 기본 렌더링을 안전하게 만듭니다.
 function cellText(value: unknown) {
   if (value === null || value === undefined) {
     return ''
@@ -27,7 +28,7 @@ function cellText(value: unknown) {
 
 <template>
   <div class="base-table" :data-testid="testId">
-    <!-- scoped slot 학습: 셀/액션 영역을 부모가 바꿀 수 있도록 row와 column 데이터를 slot prop으로 전달합니다. -->
+    <!-- scoped slot 학습: 셀/액션 영역을 부모가 바꿀 수 있도록 row, column, value를 slot prop으로 전달합니다. -->
     <table class="base-table__table">
       <caption v-if="caption" class="base-table__caption">
         {{ caption }}

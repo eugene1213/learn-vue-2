@@ -15,7 +15,7 @@ withDefaults(
 
 <template>
   <article class="base-card" :data-testid="testId">
-    <!-- slot 학습: 기본 헤더 props를 제공하면서도 부모가 필요하면 header slot으로 전체 영역을 교체할 수 있습니다. -->
+    <!-- 이 파일에서 배우는 것: 기본 title/subtitle prop을 제공하면서도 header/body/footer slot으로 카드 구성을 확장할 수 있습니다. -->
     <header v-if="title || subtitle || $slots.header" class="base-card__header">
       <slot name="header">
         <h3 v-if="title" class="base-card__title">{{ title }}</h3>
@@ -36,6 +36,7 @@ withDefaults(
 <style scoped lang="scss">
 @use '@/assets/styles/variables' as *;
 
+// BEM 학습: .base-card 블록 안에서 __header, __body, __footer 요소가 카드 구조를 나눕니다.
 .base-card {
   border: 1px solid $color-border;
   border-radius: $radius-medium;
