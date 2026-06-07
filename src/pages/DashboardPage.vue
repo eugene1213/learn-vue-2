@@ -116,6 +116,7 @@ function scheduleMeta(schedule: ScheduleItem): string {
 <style scoped lang="scss">
 @use '@/assets/styles/variables' as *;
 
+// 페이지 블록: dashboard-page를 기준으로 __hero, __metrics처럼 화면 영역을 BEM 요소로 분리합니다.
 .dashboard-page {
   display: grid;
   gap: $spacing-6;
@@ -231,6 +232,7 @@ function scheduleMeta(schedule: ScheduleItem): string {
 }
 
 @media (max-width: 720px) {
+  // 반응형 그리드: 좁은 화면에서는 카드 열 수를 1개로 줄여 가독성을 우선합니다.
   .dashboard-page__metrics,
   .dashboard-page__grid {
     grid-template-columns: 1fr;

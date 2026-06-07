@@ -4,6 +4,7 @@ import { computed, onMounted } from 'vue'
 import { useSettingsStore } from '@/stores/settings.store'
 
 const settingsStore = useSettingsStore()
+// 이 파일에서 배우는 것: 전역 설정 Store 값을 computed/class binding으로 연결해 테마가 화면 전체에 반영되는 흐름입니다.
 const themeClass = computed(() => `app-layout--${settingsStore.settings.theme}`)
 
 onMounted(async () => {
@@ -33,6 +34,7 @@ onMounted(async () => {
 <style scoped lang="scss">
 @use '@/assets/styles/variables' as *;
 
+// 테마 modifier 예시: 기본 .app-layout 블록에 --dark를 붙여 같은 구조의 색상만 전환합니다.
 .app-layout {
   min-height: 100vh;
   background:
@@ -107,6 +109,7 @@ onMounted(async () => {
 }
 
 @media (max-width: 640px) {
+  // 반응형 패턴: 헤더의 flex 방향만 바꿔 모바일에서도 내비게이션을 자연스럽게 줄바꿈합니다.
   .app-layout__header {
     align-items: flex-start;
     flex-direction: column;
