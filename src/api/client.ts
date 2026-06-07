@@ -9,7 +9,7 @@ export const apiClient = axios.create({
 
 export const mockApiLatencyMs = 150
 
-// 실제 서버가 없어도 API 경계를 Promise로 유지하면, 이후 Axios 백엔드로 교체할 때 호출부를 바꾸지 않아도 됩니다.
+// 이 파일에서 배우는 것: 실제 서버가 없어도 API 경계를 Promise로 유지하면 이후 Axios 백엔드로 교체할 때 호출부 변경을 줄입니다.
 export async function withApiLatency<T>(operation: () => T | Promise<T>): Promise<T> {
   await new Promise<void>((resolve) => {
     window.setTimeout(resolve, mockApiLatencyMs)

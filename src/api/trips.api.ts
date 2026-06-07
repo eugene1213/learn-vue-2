@@ -6,6 +6,7 @@ import type { ScheduleItem } from '@/types/schedule'
 import type { CreateTripInput, Trip, TripStatus, UpdateTripInput } from '@/types/trip'
 import { createId } from '@/utils/id'
 
+// 이 파일에서 배우는 것: Store는 API 함수만 호출하고, 저장소 읽기/쓰기와 연관 데이터 삭제는 API 계층 안에 숨깁니다.
 export function getTrips(): Promise<Trip[]> {
   return withApiLatency(() => readTrips())
 }
@@ -100,7 +101,7 @@ function persistBudgets(budgets: readonly BudgetItem[]): void {
   }
 }
 
-// API 파일의 타입 가드는 저장된 JSON을 신뢰하지 않고 도메인 계약에 맞는 값만 통과시키는 학습용 안전장치입니다.
+// 타입 가드 학습: 저장된 JSON을 신뢰하지 않고 도메인 계약에 맞는 값만 통과시키는 안전장치입니다.
 function isTrip(value: unknown): value is Trip {
   if (!isRecord(value)) {
     return false

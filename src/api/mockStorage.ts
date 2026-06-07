@@ -20,7 +20,7 @@ export interface StorageWriteResult {
   error: ApiError | null
 }
 
-// localStorage는 브라우저 전역 상태라 테스트와 장애 대응이 어렵습니다. 직접 접근을 이 파일로 모아 API 계층의 경계를 명확히 둡니다.
+// 이 파일에서 배우는 것: localStorage 직접 접근을 한곳에 모아 저장소 오류/파싱 오류를 API 계층에서 일관되게 처리합니다.
 export function readCollection<T>(key: StorageKey, isItem: (value: unknown) => value is T): StorageReadResult<T[]> {
   const storage = getStorage()
   if (storage === null) {
